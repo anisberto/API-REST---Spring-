@@ -1,0 +1,11 @@
+com\beto\osworks\domain\service\CrudClienteService.class
+com\beto\osworks\api\exception\MensageError.class
+com\beto\osworks\controller\Clientecontroller.class
+com\beto\osworks\domain\repository\ClienteRepository.class
+com\beto\osworks\OsworksApiApplication.class
+com\beto\osworks\domain\model\OrdemServico.class
+com\beto\osworks\api\exception\MensageError$Campo.class
+com\beto\osworks\domain\model\StatusOrdemServico.class
+com\beto\osworks\domain\exception\Negocioexception.class
+com\beto\osworks\api\exception\ApiExceptionHandler.class
+com\beto\osworks\domain\model\Cliente.class

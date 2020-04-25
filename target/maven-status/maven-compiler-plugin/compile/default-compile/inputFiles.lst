@@ -1,0 +1,10 @@
+C:\Projeto\Curso Spring REST\osworks-api\src\main\java\com\beto\osworks\domain\service\CrudClienteService.java
+C:\Projeto\Curso Spring REST\osworks-api\src\main\java\com\beto\osworks\api\exception\MensageError.java
+C:\Projeto\Curso Spring REST\osworks-api\src\main\java\com\beto\osworks\OsworksApiApplication.java
+C:\Projeto\Curso Spring REST\osworks-api\src\main\java\com\beto\osworks\domain\repository\ClienteRepository.java
+C:\Projeto\Curso Spring REST\osworks-api\src\main\java\com\beto\osworks\domain\exception\Negocioexception.java
+C:\Projeto\Curso Spring REST\osworks-api\src\main\java\com\beto\osworks\domain\model\Cliente.java
+C:\Projeto\Curso Spring REST\osworks-api\src\main\java\com\beto\osworks\controller\Clientecontroller.java
+C:\Projeto\Curso Spring REST\osworks-api\src\main\java\com\beto\osworks\api\exception\ApiExceptionHandler.java
+C:\Projeto\Curso Spring REST\osworks-api\src\main\java\com\beto\osworks\domain\model\OrdemServico.java
+C:\Projeto\Curso Spring REST\osworks-api\src\main\java\com\beto\osworks\domain\model\StatusOrdemServico.java
