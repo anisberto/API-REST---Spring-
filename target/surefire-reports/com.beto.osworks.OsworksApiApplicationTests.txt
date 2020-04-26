@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.beto.osworks.OsworksApiApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.802 s - in com.beto.osworks.OsworksApiApplicationTests

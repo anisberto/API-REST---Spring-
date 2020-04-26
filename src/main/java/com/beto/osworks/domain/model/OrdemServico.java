@@ -21,6 +21,7 @@ import javax.validation.groups.Default;
 
 import com.beto.osworks.api.model.Comentario;
 import com.beto.osworks.domain.ValidationGroup;
+import com.beto.osworks.domain.exception.Negocioexception;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -143,6 +144,15 @@ public class OrdemServico {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public void finalizar() {
+		if (getStatus() != StatusOrdemServico.ABERTA) {
+			throw new Negocioexception("Ordem de Serviço já esta finalizada! ");
+		}
+
+		setStatus(StatusOrdemServico.FINALIZADA);
+		setDataFinalizacao(OffsetDateTime.now());
 	}
 
 }

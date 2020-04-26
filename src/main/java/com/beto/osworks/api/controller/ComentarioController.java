@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,37 +26,32 @@ import com.beto.osworks.domain.repository.OrdemServicoRepository;
 import com.beto.osworks.domain.service.GestaoOrdemServicoService;
 
 @RestController
-@RequestMapping("/ordem-servico/{ordemServicoId}/comentarios")
+@RequestMapping("/ordens-servico/{ordemServicoId}/comentarios")
 public class ComentarioController {
+
+	@Autowired
+	private GestaoOrdemServicoService gestaoOrdemServico;
+
+	@Autowired
+	private OrdemServicoRepository ordemServicoRepository;
 
 	@Autowired
 	private ModelMapper modelMapper;
 
-
-	private OrdemServicoRepository ordemServicoRepository;
-
-	@Autowired
-	private GestaoOrdemServicoService gestaoOrdemServicoService;
-
 	@GetMapping
-	public List<ComentarioModel> buscarComentario(@PathVariable @Valid Long ordemServicoId) {
-		
+	public List<ComentarioModel> listar(@PathVariable Long ordemServicoId) {
 		OrdemServico ordemServico = ordemServicoRepository.findById(ordemServicoId)
-				.orElseThrow(() -> new EntidadeNaoEncontradaException("Ordem de Serviço não encontrada!"));
+				.orElseThrow(() -> new EntidadeNaoEncontradaException("Ordem de serviço não encontrda" ));
 
 		return toCollectionModel(ordemServico.getComentarios());
-	}
 
-	private List<ComentarioModel> toCollectionModel(List<Comentario> comentarios) {
-		return comentarios.stream().map(comentario -> toModel(comentario)).collect(Collectors.toList());
 	}
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ComentarioModel add(@PathVariable Long ordemServicoId, @RequestBody @Valid ComentarioInput comentarioInput) {
-
-		Comentario comentario = gestaoOrdemServicoService.adicionarComentario(ordemServicoId,
-				comentarioInput.getDescricao());
+	public ComentarioModel adicionar(@PathVariable Long ordemServicoId,
+			@Valid @RequestBody ComentarioInput comentarioInput) {
+		Comentario comentario = gestaoOrdemServico.adicionarComentario(ordemServicoId, comentarioInput.getDescricao());
 
 		return toModel(comentario);
 	}
@@ -63,4 +59,9 @@ public class ComentarioController {
 	private ComentarioModel toModel(Comentario comentario) {
 		return modelMapper.map(comentario, ComentarioModel.class);
 	}
+
+	private List<ComentarioModel> toCollectionModel(List<Comentario> comentarios) {
+		return comentarios.stream().map(comentario -> toModel(comentario)).collect(Collectors.toList());
+	}
+
 }
