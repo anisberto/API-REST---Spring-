@@ -1,7 +1,8 @@
 create table ordem_servico(
-	id bigint not null auto_increment,
+    id bigint not null auto_increment,
     cliente_id bigint not null,
     preco decimal(10,2) not null,
+    descricao text not null,
     status  varchar(20) not null,
     data_abertura datetime not null,
     data_finalizacao datetime,
